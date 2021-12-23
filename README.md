@@ -4,10 +4,40 @@ Example microservices application that uses the domain of an Asset Tracker to sh
 
 ## Asset Service
 
+Single assembly service
+
 - Maintain assets for a customer
   - Create Asset
   - Delete Asset
   - Update Asset
+
+### CRUD Operations and Endpoints
+
+| Method | Request URI                        | Use Case           |
+|--------|------------------------------------|--------------------|
+| GET    | api/v1/asset                       | Listing assets     |
+| GET    | api/v1/asset/{id}                  | Get asset with id  |
+| GET    | api/v1/asset/GetAssetByType/{type} | Get assets by type |
+| POST   | api/v1/asset                       | Create new asset   |
+| PUT    | api/v1/asset                       | Update asset       |
+| DELETE | api/v1/asset/{id}                  | Delete asset       |
+
+```powershell
+
+docker pull mongo             # Pull mongo image
+docker run -d -p 27017:27017 --name assets-mongo mongo
+docker exec -it assets-mongo /bin/bash
+
+mongo                         # Go into mongo commands
+show dbs                      # Show the current databases
+
+use AssetsDb                  # Create AssetsDb
+db.createCollection('Assets') # Create Assets collections
+
+db.Assets.insert
+db.Assets.inserMany([{}])
+
+```
 
 ## Scheduler Service
 
