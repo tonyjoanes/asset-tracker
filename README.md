@@ -104,3 +104,19 @@ NewJobRequiredEvent
 - Create customer addresses
 - Create assets
 - Create asset schedules
+
+## Running things
+
+We're using Docker Compose to run all the services and dependencies
+
+```powershell
+docker compose -f.\docker-compose.yml -f .\docker-compose.override.yml up -d
+```
+
+Now access the website on `http://localhost:8001/swagger`
+
+Take it down with:
+
+```powershell
+docker compose -f.\docker-compose.yml -f .\docker-compose.override.yml down
+```

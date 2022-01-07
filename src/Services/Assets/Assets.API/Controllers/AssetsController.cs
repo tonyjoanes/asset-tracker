@@ -12,12 +12,12 @@
 
     [ApiController]
     [Route("api/v1/[controller]")]
-    public class AssetController : ControllerBase
+    public class AssetsController : ControllerBase
     {
         private readonly IAssetRepository _repository;
-        private readonly ILogger<AssetController> _logger;
+        private readonly ILogger<AssetsController> _logger;
 
-        public AssetController(IAssetRepository repository, ILogger<AssetController> logger)
+        public AssetsController(IAssetRepository repository, ILogger<AssetsController> logger)
         {
             this._repository = repository;
             this._logger = logger;

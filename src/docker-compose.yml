@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  assetsdb:
+    image: mongo
+  assets.api:
+    image: ${DOCKER_REGISTRY-}assetsapi
+    build:
+      context: .
+      dockerfile: Services/Assets/Assets.API/Dockerfile
+
+volumes:
+  mongo_data:
