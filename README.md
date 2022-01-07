@@ -120,3 +120,13 @@ Take it down with:
 ```powershell
 docker compose -f.\docker-compose.yml -f .\docker-compose.override.yml down
 ```
+
+### Mongo Client
+
+You can use the following for a client GUI into Mongodb, run this
+
+```powershell
+docker run -d -p 3000:3000 mongoclient/mongoclient
+```
+
+Then access the client via `http://localhost:3000`
