@@ -44,6 +44,14 @@ db.Assets.inserMany([{}])
 - Create schedule for an Asset
 - Create maintenance jobs for an asset on a schedule
 
+| Method | Request URI                        | Use Case                                |
+|--------|------------------------------------|-----------------------------------------|
+| GET    | api/v1/schedule                    | Get schedule with username              |
+| POST   | api/v1/schedule                    | Update schedule and items (add -remove) |
+| DELETE | api/v1/schedule/{id}               | Delete a schedule                       |
+| DELETE | api/v1/schedule/{id}               | Delete a schedule                       |
+| POST   | api/v1/schedule/publish            | Publish the schedule                    |
+
 ### Create Schedule
 
 An asset can have a schedule, much like you service a car each year
@@ -130,3 +138,9 @@ docker run -d -p 3000:3000 mongoclient/mongoclient
 ```
 
 Then access the client via `http://localhost:3000`
+
+### Redis
+
+```powershell
+docker run -d -p 6379:6379 --name assettracker-redis redis
+```
