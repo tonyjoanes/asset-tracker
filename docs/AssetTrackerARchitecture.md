@@ -39,13 +39,28 @@ Asset Tracker is an application to provide an organisation the ability to track 
 | 3    | Interoperability  | New clients can be created and make use of the API's that are created |
 | 4    | Testability       | Each building block of the architecture should be testable   |
 
-
-
 ### 1.3 Stakeholders
+
+The following lists contains the most important personas for this application
+
+| Role/Name   | Goal/Boundaries                                              |
+| ----------- | ------------------------------------------------------------ |
+| Developers  | Developers who want to learn about modern microservices applications using a variety of technologies to solve a problem |
+| Tony Joanes | Improving my skills and sharpening the saw. Trying out some new technologies and experimenting with them. |
 
 ## 2. Architecture Constraints
 
 ### 2.1 Technical Constraints
+
+The few constraints on this project are reflected in the final solution. This section shows them and if applicable, their motivation.
+
+|      | Constraint                                                   | Background / Motivation                                      |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| TC1  | This is currently only being setup for local development purposes | The application should be deployable anywhere and if possible onto a Kubernetes environment. |
+| TC2  | Deployable to Linux environment                              | The application is setup to be deployable on a Linux environment |
+| TC3  | Performance                                                  | No testing around performance is being done                  |
+
+### 
 
 ### 2.2 Organisational Constraints
 

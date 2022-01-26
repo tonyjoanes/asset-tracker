@@ -8,6 +8,23 @@ services:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
+
+  schedulerdb:
+    container_name: schedulerdb
+    restart: always
+    ports:
+      - "6379:6379"
+
+  portainer:
+    container_name: portainer
+    restart: always
+    ports:
+      - "8090:8000"
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
   assets.api:
     container_name: assets.api
     environment:
@@ -16,6 +33,17 @@ services:
     depends_on:
       - assetsdb
     ports:
-      - "8001:80"
+      - "8050:80"
     volumes:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+  scheduler.api:
+    container_name: scheduler.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "CacheSettings:ConnectionString=schedulerdb:6379"
+    depends_on:
+      - schedulerdb
+    ports:
+      - "8051:80"
+

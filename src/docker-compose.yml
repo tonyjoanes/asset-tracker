@@ -3,11 +3,25 @@ version: '3.4'
 services:
   assetsdb:
     image: mongo
+
+  schedulerdb:
+    image: redis:alpine
+
+  portainer:
+    image: portainer/portainer-ce
+
   assets.api:
     image: ${DOCKER_REGISTRY-}assetsapi
     build:
       context: .
       dockerfile: Services/Assets/Assets.API/Dockerfile
 
+  scheduler.api:
+    image: ${DOCKER_REGISTRY-}schedulerapi
+    build:
+      context: .
+      dockerfile: Services/Scheduler/Scheduler.API/Dockerfile
+
 volumes:
   mongo_data:
+  portainer_data:
