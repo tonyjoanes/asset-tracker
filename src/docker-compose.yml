@@ -6,6 +6,12 @@ services:
 
   schedulerdb:
     image: redis:alpine
+    
+  workitemsdb:
+    image: postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
 
   portainer:
     image: portainer/portainer-ce
@@ -22,6 +28,14 @@ services:
       context: .
       dockerfile: Services/Scheduler/Scheduler.API/Dockerfile
 
+  workitems.api:
+    image: ${DOCKER_REGISTRY-}workitemsapi
+    build:
+      context: .
+      dockerfile: Services/WorkItems/WorkItems.API/Dockerfile
+
 volumes:
   mongo_data:
   portainer_data:
+  postgres_data:
+  pgadmin_data:

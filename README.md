@@ -144,3 +144,23 @@ Then access the client via `http://localhost:3000`
 ```powershell
 docker run -d -p 6379:6379 --name assettracker-redis redis
 ```
+
+### Postgres
+
+```sql
+CREATE TABLE Schedule(
+	ID SERIAL PRIMARY KEY NOT NULL,
+	Name VARCHAR(24) NOT NULL,
+	AssetName VARCHAR(50) NOT NULL,
+	Description TEXT,
+	Interval INT
+)
+```
+
+Data:
+
+```sql
+INSERT INTO Schedule (name, assetname, description, interval) VALUES ('Basic', 'sink', 'A basic sink clean', 1);
+
+INSERT INTO Schedule (name, assetname, description, interval) VALUES ('Advanced', 'car', 'A car service', 1);
+```
